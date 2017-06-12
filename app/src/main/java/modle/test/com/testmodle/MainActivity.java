@@ -9,9 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import com.alibaba.android.arouter.launcher.ARouter;
+
 import modle.test.com.baselibrary.AppConfig;
 import modle.test.com.baselibrary.BaseActivity;
 import modle.test.com.baselibrary.utils.ToastUtil;
+import modle.test.com.orderlibrary.OrderActivity;
 
 
 public class MainActivity extends BaseActivity {
@@ -23,13 +26,15 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ARouter.init(getApplication()); // 尽可能早，推荐在Application中初始化
         tip = (TextView) findViewById(R.id.tip);
         findViewById(R.id.btnOrderManager).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = getStartActivityIntent(AppConfig.OrderManagerModuleActivity);
                 try {
-                    startActivityForResult(intent, 1);
+//                    startActivityForResult(intent, 1);
+                    ARouter.getInstance().build("/test/1").navigation(MainActivity.this,1);
                 } catch (ActivityNotFoundException e) {
                     e.printStackTrace();
                     ToastUtil.showToast(getApplicationContext(), "该功能尚未开放");

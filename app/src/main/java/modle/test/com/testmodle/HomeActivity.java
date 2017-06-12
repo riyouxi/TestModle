@@ -10,9 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@Route(path = "/home/test")
 public class HomeActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;

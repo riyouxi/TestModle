@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.alibaba.android.arouter.facade.annotation.Route;
+
 import modle.test.com.baselibrary.AppConfig;
 import modle.test.com.baselibrary.BaseActivity;
 import modle.test.com.baselibrary.utils.ToastUtil;
@@ -16,7 +18,7 @@ import modle.test.com.orderlibrary.datas.Order;
 import modle.test.com.orderlibrary.interfaces.OperationPresenter;
 import modle.test.com.orderlibrary.interfaces.OrderOperationView;
 
-
+@Route(path = "/test/1")
 public class OrderActivity extends BaseActivity implements View.OnClickListener ,OrderOperationView {
 
     private OperationPresenter operationPresenter;
